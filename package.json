@@ -9,7 +9,7 @@
     "dev": "node src/server/dev.js",
     "dev-test": "node src/server/devTest.js",
     "build": "node src/server/package.js",
-    "test": "./node_modules/.bin/mocha --check-leaks --throw-deprecation --growl --bail --recursive --compilers js:babel/register src/test/unit src/test/ui",
+    "test": "./node_modules/.bin/mocha --check-leaks --throw-deprecation --growl --bail --recursive --compilers js:babel/register src/test/unit",
     "test-unit": "./node_modules/.bin/mocha --check-leaks --throw-deprecation --growl --recursive --compilers js:babel/register src/test/unit",
     "test-ui": "./node_modules/.bin/mocha --check-leaks --throw-deprecation --growl --bail --recursive --compilers js:babel/register src/test/ui"
   },
