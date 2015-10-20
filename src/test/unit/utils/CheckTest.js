@@ -46,9 +46,7 @@ describe('Check', function () {
     });
     it("throws when provided function not truthy", function () {
       assert.throws(function () {
-        check.true("", function () {
-          return false;
-        });
+        check.true("", function(){return false;});
       });
     });
   });

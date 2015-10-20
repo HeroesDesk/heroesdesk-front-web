@@ -1,13 +1,13 @@
 'use strict';
 
-import {Message} from 'cqrs4js';
+import {Message} from '../../../../main/js/cqrs4js/cqrs4js';
 import assert from 'assert';
 
 describe('Message', function () {
   it("has an uuid", function () {
     assert(new Message("foo", "bar").uuid !== null);
   });
-  it("throws Error if no type provided", function () {
+  it("throws Error if no name provided", function () {
     assert.throws(function () {
       new Message(null, "bar");
     });
@@ -27,8 +27,8 @@ describe('Message', function () {
 
     it("can provide payload", function () {
       class WorkingMessage extends Message {
-        constructor(type, payload) {
-          super(type, payload);
+        constructor(name, payload) {
+          super(name, payload);
         }
       }
       const payload = "payload";
@@ -37,9 +37,9 @@ describe('Message', function () {
 
 
     it("can define functions", function () {
-      class MessageWitgFunction extends Message {
-        constructor(type, payload) {
-          super(type, payload);
+      class MessageWithFunction extends Message {
+        constructor(name, payload) {
+          super(name, payload);
         }
 
         nicePayload() {
@@ -47,7 +47,7 @@ describe('Message', function () {
         }
       }
       const payload = "payload";
-      assert.equal("nice" + payload, new MessageWitgFunction("WorkingMessage", payload).nicePayload());
+      assert.equal("nice" + payload, new MessageWithFunction("WorkingMessage", payload).nicePayload());
     });
   });
 });
