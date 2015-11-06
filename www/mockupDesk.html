@@ -7,76 +7,75 @@
     <meta name="description" content="Helping heroes helping out.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
     <link rel="stylesheet" type="text/css"
           href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 
 </head>
 <body>
-<div class="container-fluid">
-    <nav class="navbar navbar-light bg-faded">
-        <a class="navbar-brand" href="#">HeroesDesk</a>
-        <ul class="nav navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Desk <span class="sr-only">(current)</span></a>
+<div class="container">
+    <nav class="nav-wrapper">
+        <a href="#" class="brand-logo center">HeroesDesk</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li class="nav-link active">
+                <a href="#">Desk</a>
             </li>
-            <li class="nav-item">
+            <li>
                 <a class="nav-link" href="#">Projects</a>
             </li>
-            <li class="nav-item">
+            <li>
                 <a class="nav-link" href="#">Admin</a>
             </li>
         </ul>
-        <form class="form-inline navbar-form pull-right">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-                </span>
+        <form class="right">
+            <div class="input-field">
+                <input id="search" type="search" required placeholder="Search for...">
+                <label for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
             </div>
         </form>
     </nav>
 
     <div class="row">
-        <div class="col-md-2">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <h6>Filters
-                        <small class="text-muted"><i class="fa fa-chevron-left"></i></small>
-                    </h6>
-                </li>
-                <li class="list-group-item">
-                    Show conversations concerning:<br/><a href="#" class="btn disabled"> me (4) </a>|<a href="#"
-                                                                                                        class="btn">
-                    anyone
-                    (6)</a>
-                </li>
-                <li class="list-group-item">
-                    Projects:
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Action
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-                </li>
+        <div class="col s2">
+            <h6>Filters
+                <small class="text-muted"><i class="fa fa-chevron-left"></i></small>
+            </h6>
+            Show conversations concerning
+            <a class='dropdown-button btn' href='#' data-activates='concerningChoices'>me</a>
+            <ul id='concerningChoices' class='dropdown-content'>
+                <li><a href="#!">me <span class="badge">4</span></a></li>
+                <li><a href="#!">everyone <span class="badge">4</span></a></li>
             </ul>
+
+            Projects:
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Action
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3" style="border-right: 1px solid black;">
+        <div class="col s3">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col s4">
                     To qualify
                 </div>
-                <div class="col-md-7">
+                <div class="col s7">
                 </div>
-                <div class="col-md-1">
+                <div class="col s1">
                     <small class="text-muted"><i class="fa fa-chevron-up"></i></small>
                 </div>
             </div>
@@ -222,5 +221,10 @@
         https://issues.scala-lang.org/browse/SI-6983?jql=status%20%3D%20Open%20AND%20text%20~%20%22foo%22
     -->
 </div>
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
