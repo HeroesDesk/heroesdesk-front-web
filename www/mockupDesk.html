@@ -15,11 +15,48 @@
     <link rel="stylesheet" type="text/css"
           href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 
+    <style>
+        .keep-room-for-badge {
+            margin-right: 3rem;
+        }
+
+        header, main, .main, footer {
+            padding-left: 240px;
+        }
+
+        @media only screen and (max-width: 992px) {
+            header, main, .main, footer {
+                padding-left: 0;
+            }
+        }
+
+        .side-title.light-blue {
+            color: white;
+        }
+
+        .side-nav .collapsible-header {
+            line-height: 64px;
+            height: 64px;
+        }
+
+        .side-title {
+            padding: 0 15px;
+            font-size: 1rem;
+            height: 64px;
+            line-height: 64px;
+        }
+
+        .collapsible-body .badge {
+            position: static;
+        }
+    </style>
+
 </head>
 <body>
-<div class="container">
+<header>
     <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper light-blue">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li class="nav-link active">
                     <a href="#">Desk</a>
@@ -45,35 +82,50 @@
             </div>
         </div>
     </nav>
+</header>
 
-    <div class="row">
-        <div class="col s2">
-            <h6>Filters
-                <small class="text-muted"><i class="fa fa-chevron-left"></i></small>
-            </h6>
-            Show conversations concerning
-            <a class='dropdown-button btn' href='#' data-activates='concerningChoices'>me</a>
-            <ul id='concerningChoices' class='dropdown-content'>
-                <li><a href="#!">me <span class="badge">4</span></a></li>
-                <li><a href="#!">everyone <span class="badge">4</span></a></li>
+
+<div id="slide-out" class="side-nav fixed">
+    <div class="side-title light-blue darken-3">
+        Filters
+    </div>
+    <ul style="margin:0">
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header">Concerning <i class="mdi-navigation-arrow-drop-down right"></i></a>
+
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#"><span class="keep-room-for-badge">me</span><span
+                                    class="right badge">4</span></a></li>
+                            <li><a href="#"><span class="keep-room-for-badge">everyone</span><span
+                                    class="right badge">4</span></a>
+                        </ul>
+                    </div>
+                </li>
             </ul>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header">Projects <i class="mdi-navigation-arrow-drop-down right"></i></a>
 
-            Projects:
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    Action
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#">Project 1</a></li>
+                            <li><a href="#">Project 2</a>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-            </div>
-        </div>
+<div class="main" style="height:5000px">
+    <div class="row">
+
         <div class="col s3">
             <div class="row">
                 <div class="col s4">
@@ -132,7 +184,7 @@
 
             </ul>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
         </div>
     </div>
     <!--
@@ -231,6 +283,10 @@
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+<script>
+    $(".button-collapse").sideNav();
+</script>
+
 </body>
 </html>
