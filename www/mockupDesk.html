@@ -28,6 +28,7 @@
             header, main, .main, footer {
                 padding-left: 0;
             }
+
         }
 
         .side-title.light-blue {
@@ -48,6 +49,31 @@
 
         .collapsible-body .badge {
             position: static;
+        }
+
+        .section h5 {
+            padding: 0px 0.75rem;
+        }
+
+        .section h5 .badge {
+            right: auto;
+        }
+
+        .collection a.collection-item {
+            color: #29b6f6;
+        }
+
+        .collection .collection-item.active {
+            background-color: #29b6f6;
+        }
+
+        .right-zone {
+            border-left: 1px solid #E0E0E0;
+            height: 1000px;
+        }
+
+        nav input[type="search"] {
+            margin-bottom:0;
         }
     </style>
 
@@ -123,170 +149,142 @@
     </ul>
 </div>
 
-<div class="main" style="height:5000px">
+<div class="main">
     <div class="row">
+        <div class="col s3 no-padding">
+            <div class="section">
+                <h5>To qualify <i class="mdi-navigation-arrow-drop-up right"></i></h5>
 
-        <div class="col s3">
-            <div class="row">
-                <div class="col s4">
-                    To qualify
-                </div>
-                <div class="col s7">
-                </div>
-                <div class="col s1">
-                    <small class="text-muted"><i class="fa fa-chevron-up"></i></small>
+                <div class="collection">
+                    <a href="#" class="collection-item">NAI-91 - Can't input name</a>
+                    <a href="#" class="collection-item active truncate">FIP-A1 - Deploy new version on January 1st</a>
                 </div>
             </div>
-            <div class="row" style="background-color: blue;color:white">
-                <div class="col-md-2">
-                    NAI-91
-                </div>
-                <div class="col-md-10">
-                    Can't input name
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    FIP-A1
-                </div>
-                <div class="col-md-10">
-                    Deploy new version on January 1st
-                </div>
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span class="label label-default label-pill pull-right">2</span>
-                    <h5>In progress
-                        <small class="text-muted"><i class="fa fa-chevron-up"></i></small>
-                    </h5>
-                </li>
-                <li class="list-group-item">
-                    HD-3 - Change logo
-                </li>
-                <li class="list-group-item">
-                    HD-1 - Release HeroesDes
-                </li>
-                <li class="list-group-item">
-                    <span class="label label-default label-pill pull-right">1</span>
-                    <h5>Assign to you
-                        <small class="text-muted"><i class="fa fa-chevron-up"></i></small>
-                    </h5>
-                </li>
-                <li class="list-group-item">
-                    HD-12 - Foo
-                </li>
-                <li class="list-group-item">
-                    <h5>To do
-                        <span class="label label-info label-pill">1</span>
-                        <small class="text-muted pull-right"><i class="fa fa-chevron-down"></i></small>
-                    </h5>
-                </li>
 
-            </ul>
+            <div class="section">
+                <h5>In progress <i class="mdi-navigation-arrow-drop-up right"></i></h5>
+
+                <div class="collection">
+                    <a href="#" class="collection-item">HD-3 - Change logo</a>
+                    <a href="#" class="collection-item">HD-1 - Release HeroesDesk</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h5>Assigned to me <i class="mdi-navigation-arrow-drop-up right"></i></h5>
+
+                <div class="collection">
+                    <a href="#!" class="collection-item">HD-12 - Foo</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h5>To do <span class="badge">1</span><i class="mdi-navigation-arrow-drop-down right"></i></h5>
+            </div>
         </div>
-        <div class="col-md-9">
+        <div class="col s9">
+            <p>Hello</p>
         </div>
     </div>
-    <!--
-
-        <div class="row show-grid">
-            <div class="col-md-1">Id</div>
-            <div class="col-md-2">Description</div>
-            <div class="col-md-2">Status</div>
-            <div class="col-md-4">Last non hero input(s)</div>
-            <div class="col-md-1">Due date</div>
-            <div class="col-md-2">Actions</div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">NAI-91</div>
-            <div class="col-md-2">Can't input name</div>
-            <div class="col-md-2">Worked on by Bob. Also assigned to Alice.</div>
-            <div class="col-md-4">Bob Dylan said "Happens only in android."</div>
-            <div class="col-md-1">In 3 hours</div>
-            <div class="col-md-2">Let work going on, schedule & todo, todo, answer & done</div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">FIP-A1</div>
-            <div class="col-md-2">Deploy new version on January 1st</div>
-            <div class="col-md-2"></div>
-            <div class="col-md-4">Paul said "Hello<br/><br/> Actually not such a good idea (too many people away).<br/>Can
-                we postpone it to January the 8th?<br/>Thanks in advance<br/>Best regards<br/>Paul".
-            </div>
-            <div class="col-md-1">1st January</div>
-            <div class="col-md-2">schedule & todo, todo, answer & done</div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-1">Id</div>
-            <div class="col-md-2">Description</div>
-            <div class="col-md-2">Status</div>
-            <div class="col-md-4">Last input(s)</div>
-            <div class="col-md-1">Due date</div>
-            <div class="col-md-2">Actions</div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">HD-3</div>
-            <div class="col-md-2">Change logo</div>
-            <div class="col-md-2">Worked on by you and o-schneider.</div>
-            <div class="col-md-4">You uploaded the file logo.png</div>
-            <div class="col-md-1">In 3 hours</div>
-            <div class="col-md-2">answer & done, stop working on it</div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">HD-1</div>
-            <div class="col-md-2">Fucking release HeroesDesk</div>
-            <div class="col-md-2">Worked on by you and o-schneider.</div>
-            <div class="col-md-4"><a href="#" alt="See more">32 inputs</a><br/>Last input : o-schneider answered "No
-                worries."
-            </div>
-            <div class="col-md-1">Undetermined</div>
-            <div class="col-md-2">done, stop working on it</div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-1">Id</div>
-            <div class="col-md-2">Description</div>
-            <div class="col-md-2">Status</div>
-            <div class="col-md-4">Last input(s)</div>
-            <div class="col-md-1">Due date</div>
-            <div class="col-md-2">Actions</div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">HD-5</div>
-            <div class="col-md-2">Pick up an heroic font</div>
-            <div class="col-md-2"></div>
-            <div class="col-md-4">Picky said "The font should be zoomable to 400% without any pixel visible"</div>
-            <div class="col-md-1">In 5 days</div>
-            <div class="col-md-2">start working on it, assign to ..., answer</div>
-        </div>
-
-        // Use case :
-        // - obligation de répondre au moins une fois avant done
-        // what if : Hero Foo is working on some task. Then user inputs stuff. The task is now to qualify. What should be
-        the actions? Should there be a "Continue as planned"?
-        // FIXME :
-        // - disabled on link isn't working
-        // - right align chevrons
-        // - change list-group-item height
-        // Nice to have :
-        // - a switch like the Android ON/OFF would be better IMHO but didn't find
-        any in bootstrap (yet http://foundation.zurb.com/docs/components/switch.html)
-
-        Examples :
-        https://youtrack.jetbrains.com/issues
-        https://issues.scala-lang.org/browse/SI-6983?jql=status%20%3D%20Open%20AND%20text%20~%20%22foo%22
-    -->
 </div>
-
-
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 <script>
     $(".button-collapse").sideNav();
 </script>
+
+<!--
+
+<div class="row show-grid">
+    <div class="col-md-1">Id</div>
+    <div class="col-md-2">Description</div>
+    <div class="col-md-2">Status</div>
+    <div class="col-md-4">Last non hero input(s)</div>
+    <div class="col-md-1">Due date</div>
+    <div class="col-md-2">Actions</div>
+</div>
+<div class="row">
+    <div class="col-md-1">NAI-91</div>
+    <div class="col-md-2">Can't input name</div>
+    <div class="col-md-2">Worked on by Bob. Also assigned to Alice.</div>
+    <div class="col-md-4">Bob Dylan said "Happens only in android."</div>
+    <div class="col-md-1">In 3 hours</div>
+    <div class="col-md-2">Let work going on, schedule & todo, todo, answer & done</div>
+</div>
+<div class="row">
+    <div class="col-md-1">FIP-A1</div>
+    <div class="col-md-2">Deploy new version on January 1st</div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">Paul said "Hello<br/><br/> Actually not such a good idea (too many people away).<br/>Can
+        we postpone it to January the 8th?<br/>Thanks in advance<br/>Best regards<br/>Paul".
+    </div>
+    <div class="col-md-1">1st January</div>
+    <div class="col-md-2">schedule & todo, todo, answer & done</div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-1">Id</div>
+    <div class="col-md-2">Description</div>
+    <div class="col-md-2">Status</div>
+    <div class="col-md-4">Last input(s)</div>
+    <div class="col-md-1">Due date</div>
+    <div class="col-md-2">Actions</div>
+</div>
+<div class="row">
+    <div class="col-md-1">HD-3</div>
+    <div class="col-md-2">Change logo</div>
+    <div class="col-md-2">Worked on by you and o-schneider.</div>
+    <div class="col-md-4">You uploaded the file logo.png</div>
+    <div class="col-md-1">In 3 hours</div>
+    <div class="col-md-2">answer & done, stop working on it</div>
+</div>
+<div class="row">
+    <div class="col-md-1">HD-1</div>
+    <div class="col-md-2">Fucking release HeroesDesk</div>
+    <div class="col-md-2">Worked on by you and o-schneider.</div>
+    <div class="col-md-4"><a href="#" alt="See more">32 inputs</a><br/>Last input : o-schneider answered "No
+        worries."
+    </div>
+    <div class="col-md-1">Undetermined</div>
+    <div class="col-md-2">done, stop working on it</div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-1">Id</div>
+    <div class="col-md-2">Description</div>
+    <div class="col-md-2">Status</div>
+    <div class="col-md-4">Last input(s)</div>
+    <div class="col-md-1">Due date</div>
+    <div class="col-md-2">Actions</div>
+</div>
+<div class="row">
+    <div class="col-md-1">HD-5</div>
+    <div class="col-md-2">Pick up an heroic font</div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">Picky said "The font should be zoomable to 400% without any pixel visible"</div>
+    <div class="col-md-1">In 5 days</div>
+    <div class="col-md-2">start working on it, assign to ..., answer</div>
+</div>
+
+// Use case :
+// - obligation de répondre au moins une fois avant done
+// what if : Hero Foo is working on some task. Then user inputs stuff. The task is now to qualify. What should be
+the actions? Should there be a "Continue as planned"?
+// FIXME :
+// - disabled on link isn't working
+// - right align chevrons
+// - change list-group-item height
+// Nice to have :
+// - a switch like the Android ON/OFF would be better IMHO but didn't find
+any in bootstrap (yet http://foundation.zurb.com/docs/components/switch.html)
+
+Examples :
+https://youtrack.jetbrains.com/issues
+https://issues.scala-lang.org/browse/SI-6983?jql=status%20%3D%20Open%20AND%20text%20~%20%22foo%22
+-->
 
 </body>
 </html>
