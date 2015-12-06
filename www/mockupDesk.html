@@ -93,7 +93,7 @@
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li class="nav-link active">
-                    <a href="#">Desk</a>
+                    <a href="#">Conversations</a>
                 </li>
                 <li>
                     <a class="nav-link" href="#">Projects</a>
@@ -121,22 +121,19 @@
 
 <div id="slide-out" class="side-nav fixed">
     <div class="side-title light-blue darken-3">
-        Filters
+        Conversations from
     </div>
     <ul style="margin:0">
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Concerning
-
-                        <i class="mdi-navigation-arrow-drop-down right"></i></a>
+                    <a class="collapsible-header">All projects <i class="mdi-navigation-arrow-drop-down right"></i></a>
 
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="#"><span class="keep-room-for-badge">you</span><span
-                                    class="right badge">4</span></a></li>
-                            <li><a href="#"><span class="keep-room-for-badge">everyone</span><span
-                                    class="right badge">8</span></a>
+                            <li><a href="#">All<span class="right badge">8</span></a></li>
+                            <li><a href="#">Project 1<span class="right badge">5</span></a></li>
+                            <li><a href="#">Project 2<span class="right badge">4</span></a></li>
                         </ul>
                     </div>
                 </li>
@@ -145,18 +142,17 @@
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Projects <i class="mdi-navigation-arrow-drop-down right"></i></a>
-
+                    <a class="collapsible-header">Concerning you<i class="mdi-navigation-arrow-drop-down right"></i></a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="#">All</a></li>
-                            <li><a href="#">Project 1</a></li>
-                            <li><a href="#">Project 2</a></li>
+                            <li><a href="#"><span class="keep-room-for-badge">you</span><span class="right badge">4</span></a></li>
+                            <li><a href="#"><span class="keep-room-for-badge">everyone</span><span class="right badge">8</span></a>
                         </ul>
                     </div>
                 </li>
             </ul>
         </li>
+
     </ul>
 </div>
 
@@ -194,7 +190,7 @@
                 <h5>To do <span class="badge">1</span><i class="mdi-navigation-arrow-drop-down right"></i></h5>
             </div>
             <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-               data-delay="50" data-tooltip="Create new conversation"><i class="material-icons">create</i></a>
+               data-delay="50" data-tooltip="New conversation"><i class="material-icons">create</i></a>
 
         </div>
         <div class="col s9">
@@ -221,7 +217,8 @@
                         voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
                         eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.</p>
 
-                    <p>29/Oct/15 10:12 AM, you commented:<br/>Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                    <p>29/Oct/15 10:12 AM, you commented:<br/>Qui dolorem ipsum quia dolor sit amet, consectetur,
+                        adipisci
                         velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam
                         quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
                         suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
@@ -245,23 +242,25 @@
                     <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
                        data-delay="50" data-tooltip="Reply"><i class="material-icons">reply</i></a>
                     <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-                       data-delay="50" data-tooltip="Done"><i class="material-icons">done</i></a>
+                       data-delay="50" data-tooltip="Close"><i class="material-icons">done</i></a>
                     <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-                       data-delay="50" data-tooltip="Qualified">OK</a>
+                       data-delay="50" data-tooltip="Qualify"><i class="material-icons">archive</i></a>
                 </div>
                 <div class="col s3">
                     Issue(s)
                     <h6 class="c-title">Deploy new version on January 1st</h6>
+
                     <p>
                         <span class="tooltipped" data-position="bottom" data-delay="50"
-                                          data-tooltip="28/Oct/15 5:47 PM by John Roe">Task</span> - Due date : January
+                              data-tooltip="28/Oct/15 5:47 PM by John Roe">Task</span> - Due date : January
                         1st - Importance : normal <a
-                                class="btn-floating btn waves-effect waves-light red right tooltipped"
-                                data-position="bottom" data-delay="50" data-tooltip="More actions"><i
-                                class="material-icons">add</i></a></p>
+                            class="btn-floating btn waves-effect waves-light red right tooltipped"
+                            data-position="bottom" data-delay="50" data-tooltip="More actions"><i
+                            class="material-icons">add</i></a></p>
                     <h6 class="c-title">Which OS?</h6>
+
                     <p><span class="tooltipped" data-position="bottom" data-delay="50"
-                                           data-tooltip="29/Oct/15 10:13 AM by you">Question</span> - Due date :
+                             data-tooltip="29/Oct/15 10:13 AM by you">Question</span> - Due date :
                         November 31st - Importance : high <a
                                 class="btn-floating btn waves-effect waves-light red right tooltipped"
                                 data-position="bottom" data-delay="50" data-tooltip="More actions"><i
@@ -290,13 +289,6 @@
 // - obligation de répondre au moins une fois avant done
 // what if : Hero Foo is working on some task. Then user inputs stuff. The task is now to qualify. What should be
 the actions? Should there be a "Continue as planned"?
-// FIXME :
-// - disabled on link isn't working
-// - right align chevrons
-// - change list-group-item height
-// Nice to have :
-// - a switch like the Android ON/OFF would be better IMHO but didn't find
-any in bootstrap (yet http://foundation.zurb.com/docs/components/switch.html)
 
 Examples :
 https://youtrack.jetbrains.com/issues
