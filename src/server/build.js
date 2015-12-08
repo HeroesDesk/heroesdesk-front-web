@@ -2,7 +2,6 @@
 
 var fs = require("fs");
 var babelify = require("babelify");
-var lessify = require("node-lessify");
 var browserify = require("browserify");
 
 module.exports.init = function (srcRelPath, webAppRelPath, errorCb, endCb) {
@@ -11,8 +10,7 @@ module.exports.init = function (srcRelPath, webAppRelPath, errorCb, endCb) {
 
   console.log("Building web app from " + srcPath + " to " + webAppPath);
   var b = browserify({cache: {}, packageCache: {}, debug: true})
-    .transform(lessify)
-    .transform(babelify.configure({ignore: /less/}))
+    .transform(babelify.configure())
     .add(srcPath + "/main.js");
   return {
     build: function () {

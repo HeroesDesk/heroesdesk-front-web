@@ -1,70 +1,44 @@
 'use strict';
 
-import React from 'react';
-import Router from 'react-router';
-import ReactBootstrap from 'react-bootstrap';
-import ReactRouterBootstrap from 'react-router-bootstrap';
+import React,  { Component, PropTypes} from 'react';
+import Router, { Route, DefaultRoute, RouteHandler } from 'react-router';
 
-import Desk from './desk/Desk.js';
-import Issue from './issue/Issue.js';
-import {Search} from './search/Search.js';
+import {EventBus, CommandBus, createView} from '../js/cqrs4js/cqrs4js';
 
-import { createRedux } from 'redux';
-import {Provider} from 'redux/react';
-import * as stores from './stores';
+import {createConversationsView} from "./conversation/ConversationsView";
+import createProvider from "./cqrs4js/react/ContextFactory";
+import {ViewRegister} from "./cqrs4js/cqrs4js";
 
-require('../less/main.less');
+import ConversationsUi from './conversation/ConversationsUi';
 
-const appNode = document.getElementById("app");
-const redux = createRedux(stores);
+const eventBus = new EventBus();
+const commandBus = new CommandBus();
+const viewRegister = new ViewRegister();
 
-var {
-  Route,
-  Redirect,
-  RouteHandler
-  } = Router;
+viewRegister.register('conversationsView', createConversationsView(eventBus));
 
-var {
-  NavItemLink
-  } = ReactRouterBootstrap;
+const Provider = createProvider(React);
 
-var {
-  Nav,
-  Navbar
-  } = ReactBootstrap;
-
-var App = React.createClass({
+const App = React.createClass({
   render: function () {
     return (
-      <Provider redux={redux}>
-        {() =>
-          <div>
-            <Navbar brand={<a href="#">HeroesDesk</a>}>
-              <Nav>
-                <NavItemLink to="desk">Desk</NavItemLink>
-                <NavItemLink to="search">Search</NavItemLink>
-              </Nav>
-            </Navbar>
-            <RouteHandler/>
-          </div>
-        }
-      </Provider>
+      <div >
+        <RouteHandler />
+      </div>
     );
   }
 });
 
-var routes = (
-  <Route handler={App}>
-    <Redirect from="/" to="/issues"/>
-    <Redirect from="/desk" to="/issues"/>
-    <Route name="desk" path="issues" handler={Desk}/>
-    <Route name="issue" path="issues/:issueId" handler={Issue}/>
-    <Route name="search" path="search" handler={Search}/>
+const Routes = (
+  <Route name="home" path="/" handler={App}>
+    <DefaultRoute handler={ConversationsUi}/>
   </Route>
 );
 
-Router.run(routes, function (Handler) {
-  React.render(<Handler/>, appNode);
+Router.run(Routes, function (RouteHandler) {
+  React.render(<Provider eventBus={eventBus}
+                         commandBus={commandBus}
+                         viewRegister={viewRegister}
+  >
+    {() => <RouteHandler />}</Provider>, document.getElementById("app"));
 });
-
-

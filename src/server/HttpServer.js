@@ -1,7 +1,6 @@
 "use strict";
 
 var express = require('express');
-var less = require('less-middleware');
 
 function HttpServer(port, staticServedPath, logRequest) {
   this.port = port;

@@ -1,4 +1,5 @@
 'use strict';
+
 export default function createProvider(React) {
   const { Component, PropTypes, Children } = React;
   const messageBusShape = createMessageBusShape(PropTypes);
