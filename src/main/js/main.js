@@ -1,6 +1,6 @@
 'use strict';
 
-import {Component, React} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, DefaultRoute } from 'react-router';
 
@@ -16,7 +16,7 @@ const viewRegister = new ViewRegister();
 viewRegister.register('conversationsView', createConversationsView(eventBus));
 
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div >
@@ -29,6 +29,8 @@ class App extends Component {
     );
   }
 }
+
+console.log(ReactDOM);
 
 ReactDOM.render(
   <Provider eventBus={eventBus}
