@@ -1,14 +1,12 @@
 'use strict';
 
-import React,  { Component, PropTypes} from 'react';
-import Router, { Route, DefaultRoute, RouteHandler } from 'react-router';
+import {Component, React} from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, DefaultRoute } from 'react-router';
 
-import {EventBus, CommandBus, createView} from '../js/cqrs4js/cqrs4js';
+import {EventBus, CommandBus, Provider, ViewRegister} from './cqrs4js/cqrs4js';
 
 import {createConversationsView} from "./conversation/ConversationsView";
-import createProvider from "./cqrs4js/react/ContextFactory";
-import {ViewRegister} from "./cqrs4js/cqrs4js";
-
 import ConversationsUi from './conversation/ConversationsUi';
 
 const eventBus = new EventBus();
@@ -17,28 +15,26 @@ const viewRegister = new ViewRegister();
 
 viewRegister.register('conversationsView', createConversationsView(eventBus));
 
-const Provider = createProvider(React);
 
-const App = React.createClass({
-  render: function () {
+class App extends Component {
+  render() {
     return (
       <div >
-        <RouteHandler />
+        <Router>
+          <Route name="home" path="/" handler={App}>
+            <DefaultRoute handler={ConversationsUi}/>
+          </Route>
+        </Router>
       </div>
     );
   }
-});
+}
 
-const Routes = (
-  <Route name="home" path="/" handler={App}>
-    <DefaultRoute handler={ConversationsUi}/>
-  </Route>
+ReactDOM.render(
+  <Provider eventBus={eventBus}
+            commandBus={commandBus}
+            viewRegister={viewRegister}>
+    <App />
+  </Provider>,
+  document.getElementById("app")
 );
-
-Router.run(Routes, function (RouteHandler) {
-  React.render(<Provider eventBus={eventBus}
-                         commandBus={commandBus}
-                         viewRegister={viewRegister}
-  >
-    {() => <RouteHandler />}</Provider>, document.getElementById("app"));
-});

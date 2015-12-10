@@ -1,10 +1,11 @@
 'use strict';
 
-import React from 'react/addons';
+import { Component} from 'react';
 
-export default class ConversationsUi extends React.Component {
+export default class ConversationsUi extends Component {
 
   render() {
+    console.log("in it");
     return (
       <div>
         ConversationsUi here

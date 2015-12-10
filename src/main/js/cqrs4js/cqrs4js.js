@@ -6,4 +6,5 @@ export {Event} from "./event/Event";
 export {EventBus} from "./event/EventBus";
 export {createView} from "./view/createView";
 export {createModel} from "./model/createModel";
-export {ViewRegister} from "./react/ViewRegister"
+export {ViewRegister} from "./react/ViewRegister";
+export {Provider} from "./react/Provider";
