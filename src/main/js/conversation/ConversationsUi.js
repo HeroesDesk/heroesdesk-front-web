@@ -1,6 +1,6 @@
 'use strict';
 
-import { Component} from 'react';
+import React, {Component} from 'react';
 
 export default class ConversationsUi extends Component {
 
