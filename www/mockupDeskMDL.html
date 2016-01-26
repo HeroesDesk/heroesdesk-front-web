@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Heroes Desk</title>
+    <meta name="description" content="Helping heroes helping out.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue-red.min.css"/>
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+        .right {
+            float:right;
+        }
+
+        ul.collection {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.collection>li {
+            list-style-type:none;
+            background-color: #FFF;
+            line-height: 1.5rem;
+            padding: 10px 20px;
+            margin: 0px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        ul.collection>li>a {
+            text-decoration: none;
+            display: block;
+            transition: all 0.25s ease 0s;
+            color: #26A69A;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs mdl-layout--fixed-drawer">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">HeroesDesk</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon"
+                       for="waterfall-exp">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                           id="waterfall-exp">
+                </div>
+            </div>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Admin</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"> Conversations from </span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col no-padding">
+                <div class="section">
+                    Open conversations
+                    <h5>To qualify <i class="material-icons right">arrow_drop_up</i></h5>
+
+                    <ul class="collection">
+                        <li><a href="#" class="collection-item">NAI-91 - Can't input name</a></li>
+                        <li><a href="#" class="collection-item active truncate">FIP-A1 - Deploy new version on January 1st</a></li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h5>In progress <i class="material-icons right">arrow_drop_up</i></h5>
+
+                    <ul class="collection">
+                        <li><a href="#" class="collection-item">HD-3 - Change logo</a></li>
+                        <li><a href="#" class="collection-item">HD-1 - Release HeroesDesk</a></li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h5>Assigned to you <i class="material-icons right">arrow_drop_up</i></h5>
+
+                    <ul class="collection">
+                        <li><a href="#!" class="collection-item">HD-12 - Foo</a></li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h5>To do <span class="badge">1</span><i class="mdi-navigation-arrow-drop-down right"></i></h5>
+                </div>
+                <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
+                   data-delay="50" data-tooltip="New conversation"><i class="material-icons">create</i></a>
+
+            </div>
+            <div class="mdl-cell mdl-cell--9-col">
+                <p class="c-context">Free Indy Pop / FIP-A1</p>
+
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--9-col">
+                        Conversation
+                        <h6 class="c-title">Deploy new version on January 1st</h6>
+
+                        <div class="chip">Linux<i class="material-icons">close</i></div>
+                        <div class="chip">OnPremise<i class="material-icons">close</i></div>
+                        </p>
+                        <p>28/Oct/15 5:30 PM, Jane Doo wrote:<br/>Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                            irure
+                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur
+                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                            laborum.</p>
+
+                        <p>28/Oct/15 5:45 PM, John Roe replied:<br/>Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+                            inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+                            dolores
+                            eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.</p>
+
+                        <p>29/Oct/15 10:12 AM, you commented:<br/>Qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci
+                            velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
+                            reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui
+                            dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+                        <p>2 hours ago, Jane Doo wrote:<br/>At vero eos et accusamus et iusto odio dignissimos ducimus
+                            qui
+                            blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+                            deserunt
+                            mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
+                            expedita
+                            distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo
+                            minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+                            repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
+                            saepe
+                            eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum
+                            hic
+                            tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
+                            perferendis doloribus asperiores repellat.</p>
+                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
+                           data-delay="50" data-tooltip="More actions"><i class="material-icons">add</i></a>
+                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
+                           data-delay="50" data-tooltip="Comment"><i class="material-icons">comment</i></a>
+                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
+                           data-delay="50" data-tooltip="Reply"><i class="material-icons">reply</i></a>
+                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
+                           data-delay="50" data-tooltip="Close"><i class="material-icons">done</i></a>
+                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
+                           data-delay="50" data-tooltip="Qualify"><i class="material-icons">archive</i></a>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col">
+                        Issue(s)
+                        <h6 class="c-title">Deploy new version on January 1st</h6>
+
+                        <p>
+                        <span class="tooltipped" data-position="bottom" data-delay="50"
+                              data-tooltip="28/Oct/15 5:47 PM by John Roe">Task</span> - Due date : January
+                            1st - Importance : normal <a
+                                class="btn-floating btn waves-effect waves-light red right tooltipped"
+                                data-position="bottom" data-delay="50" data-tooltip="More actions"><i
+                                class="material-icons">add</i></a></p>
+                        <h6 class="c-title">Which OS?</h6>
+
+                        <p><span class="tooltipped" data-position="bottom" data-delay="50"
+                                 data-tooltip="29/Oct/15 10:13 AM by you">Question</span> - Due date :
+                            November 31st - Importance : high <a
+                                    class="btn-floating btn waves-effect waves-light red right tooltipped"
+                                    data-position="bottom" data-delay="50" data-tooltip="More actions"><i
+                                    class="material-icons">add</i></a></p>
+
+                        <p>Assigned to <span class="tooltipped" data-position="bottom" data-delay="50"
+                                             data-tooltip="29/Oct/15 10:13 AM by you">Jon Roe</span> and <span
+                                class="tooltipped" data-position="bottom" data-delay="50"
+                                data-tooltip="29/Oct/15 10:12 AM by you">you</span></p>
+
+                        <p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
