@@ -13,7 +13,7 @@
 
     <style>
         .right {
-            float:right;
+            float: right;
         }
 
         ul.collection {
@@ -21,8 +21,8 @@
             padding: 0;
         }
 
-        ul.collection>li {
-            list-style-type:none;
+        ul.collection > li {
+            list-style-type: none;
             background-color: #FFF;
             line-height: 1.5rem;
             padding: 10px 20px;
@@ -30,11 +30,34 @@
             border-bottom: 1px solid #E0E0E0;
         }
 
-        ul.collection>li>a {
+        ul.collection > li > a {
             text-decoration: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
             display: block;
             transition: all 0.25s ease 0s;
             color: #26A69A;
+        }
+
+        .chip {
+            display: inline-block;
+            height: 32px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 32px;
+            padding: 0px 12px;
+            border-radius: 16px;
+            background-color: #E4E4E4;
+        }
+
+        .chip i.material-icons {
+            cursor: pointer;
+            float: right;
+            font-size: 16px;
+            line-height: 32px;
+            padding-left: 8px;
         }
 
     </style>
@@ -80,7 +103,8 @@
 
                     <ul class="collection">
                         <li><a href="#" class="collection-item">NAI-91 - Can't input name</a></li>
-                        <li><a href="#" class="collection-item active truncate">FIP-A1 - Deploy new version on January 1st</a></li>
+                        <li><a href="#" class="collection-item active truncate">FIP-A1 - Deploy new version on January
+                            1st</a></li>
                     </ul>
                 </div>
 
@@ -102,11 +126,14 @@
                 </div>
 
                 <div class="section">
-                    <h5>To do <span class="badge">1</span><i class="mdi-navigation-arrow-drop-down right"></i></h5>
+                    <h5>
+                        <span class="mdl-badge" data-badge="1">To do </span>
+                    </h5>
                 </div>
-                <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-                   data-delay="50" data-tooltip="New conversation"><i class="material-icons">create</i></a>
 
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored right">
+                    <i class="material-icons">create</i>
+                </button>
             </div>
             <div class="mdl-cell mdl-cell--9-col">
                 <p class="c-context">Free Indy Pop / FIP-A1</p>
@@ -114,7 +141,7 @@
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--9-col">
                         Conversation
-                        <h6 class="c-title">Deploy new version on January 1st</h6>
+                        <h4>Deploy new version on January 1st</h4>
 
                         <div class="chip">Linux<i class="material-icons">close</i></div>
                         <div class="chip">OnPremise<i class="material-icons">close</i></div>
@@ -160,36 +187,35 @@
                             hic
                             tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
                             perferendis doloribus asperiores repellat.</p>
-                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-                           data-delay="50" data-tooltip="More actions"><i class="material-icons">add</i></a>
-                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-                           data-delay="50" data-tooltip="Comment"><i class="material-icons">comment</i></a>
-                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-                           data-delay="50" data-tooltip="Reply"><i class="material-icons">reply</i></a>
-                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-                           data-delay="50" data-tooltip="Close"><i class="material-icons">done</i></a>
-                        <a class="btn-floating btn waves-effect waves-light red right tooltipped" data-position="bottom"
-                           data-delay="50" data-tooltip="Qualify"><i class="material-icons">archive</i></a>
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored right">
+                            <i class="material-icons">add</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored right">
+                            <i class="material-icons">comment</i></button>
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored right">
+                            <i class="material-icons">reply</i></button>
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored right">
+                            <i class="material-icons">done</i></button>
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored right">
+                            <i class="material-icons">archive</i></button>
                     </div>
                     <div class="mdl-cell mdl-cell--3-col">
                         Issue(s)
-                        <h6 class="c-title">Deploy new version on January 1st</h6>
+                        <h4>Deploy new version on January 1st</h4>
 
                         <p>
                         <span class="tooltipped" data-position="bottom" data-delay="50"
                               data-tooltip="28/Oct/15 5:47 PM by John Roe">Task</span> - Due date : January
-                            1st - Importance : normal <a
-                                class="btn-floating btn waves-effect waves-light red right tooltipped"
-                                data-position="bottom" data-delay="50" data-tooltip="More actions"><i
-                                class="material-icons">add</i></a></p>
-                        <h6 class="c-title">Which OS?</h6>
+                            1st - Importance : normal <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored right">
+                            <i class="material-icons">add</i></button></p>
+                        <h4>Which OS?</h4>
 
                         <p><span class="tooltipped" data-position="bottom" data-delay="50"
                                  data-tooltip="29/Oct/15 10:13 AM by you">Question</span> - Due date :
-                            November 31st - Importance : high <a
-                                    class="btn-floating btn waves-effect waves-light red right tooltipped"
-                                    data-position="bottom" data-delay="50" data-tooltip="More actions"><i
-                                    class="material-icons">add</i></a></p>
+                            November 31st - Importance : high
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored right">
+                                <i class="material-icons">add</i></button>
+                        </p>
 
                         <p>Assigned to <span class="tooltipped" data-position="bottom" data-delay="50"
                                              data-tooltip="29/Oct/15 10:13 AM by you">Jon Roe</span> and <span
