@@ -1,24 +1,18 @@
 'use strict';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import Rx from 'rx';
+import Cycle from '@cycle/core';
+import CycleDOM from '@cycle/dom';
 
-import {EventBus, CommandBus, Provider, ViewRegister} from './cqrs4js/cqrs4js';
+function main() {
+  return {
+    DOM: Rx.Observable.interval(1000)
+      .map(i => CycleDOM.h1('' + i + ' seconds elapsed'))
+  };
+}
 
-import {createConversationsView} from "./conversation/ConversationsView";
-import ConversationsUi from './conversation/ConversationsUi';
+const drivers = {
+  DOM: CycleDOM.makeDOMDriver('#app')
+};
 
-const eventBus = new EventBus();
-const commandBus = new CommandBus();
-const viewRegister = new ViewRegister();
-
-viewRegister.register('conversationsView', createConversationsView(eventBus));
-
-ReactDOM.render(
-  <Provider eventBus={eventBus}
-            commandBus={commandBus}
-            viewRegister={viewRegister}>
-    <ConversationsUi/>
-  </Provider>,
-  document.getElementById("app")
-);
+Cycle.run(main, drivers);
