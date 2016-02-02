@@ -2,7 +2,6 @@
 
 var watchify = require("watchify");
 var notifier = require("node-notifier");
-var childProcess = require('child_process');
 
 var build = require("./build");
 
