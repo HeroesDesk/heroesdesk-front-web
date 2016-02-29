@@ -16,6 +16,7 @@
   "dependencies": {
     "@cycle/core": "^6.0.0",
     "@cycle/dom": "^8.0.0",
+    "@cycle/isolate": "^1.2.0",
     "bootstrap": "^3.3.6",
     "express": "^4.13.3",
     "history": "^1.13.1",

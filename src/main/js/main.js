@@ -1,27 +1,27 @@
 'use strict';
 
+import {Observable} from 'rx';
 import Cycle from '@cycle/core';
-import {makeDOMDriver, hJSX} from '@cycle/dom';
+import {makeDOMDriver, div} from '@cycle/dom';
 
 import "../less/test.less";
 import "bootstrap/less/bootstrap.less"
 
-function main(drivers) {
-  return {
-    DOM: drivers.DOM.select('input').events('click')
-      .map(ev => ev.target.checked)
-      .startWith(false)
-      .map(toggled =>
-        <div>
-          <input type="checkbox" /> Toggle me
-          <p>{toggled ? 'ON' : 'off'}</p>
-        </div>
-      )
-  };
+import IssueList from './issues/IssueList';
+
+function main(sources) {
+    const issueList = IssueList(sources);
+
+    return {
+        DOM: Observable.combineLatest(
+            issueList.DOM,
+            (issueListVTree => div(["container", issueListVTree]))
+        )
+    };
 }
 
 const drivers = {
-  DOM: makeDOMDriver('#app')
+    DOM: makeDOMDriver('#app')
 };
 
 Cycle.run(main, drivers);
