@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'cheap-eval-source-map',
+    devtool: 'source-map',
     entry: [
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/dev-server',
@@ -21,13 +21,15 @@ module.exports = {
     ],
     module: {
         loaders: [
-            { test: /\.css$/, loaders: ['style', 'css'] },
-            { test: /\.scss$/, loaders: ["style", "css", "sass"] },
-            { test: /\.js$/, loaders: ['babel'], include: path.join(__dirname, 'src/main/js') }
+            {test: /\.css$/, loaders: ['style', 'css']},
+            {test: /\.less/, loaders: ["style", "css", "less"]},
+            {test: /\.(jpg|ttf|eot|svg|woff|woff2)$/, loader: "file-loader"},
+            {test: /\.js$/, loaders: ['babel'], include: path.join(__dirname, 'src/main/js')}
         ]
     },
     devServer: {
         contentBase: './target',
+        historyApiFallback: true,
         hot: true
     }
 };

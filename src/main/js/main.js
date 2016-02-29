@@ -3,7 +3,8 @@
 import Cycle from '@cycle/core';
 import {makeDOMDriver, hJSX} from '@cycle/dom';
 
-import "./test.scss";
+import "../less/test.less";
+import "bootstrap/less/bootstrap.less"
 
 function main(drivers) {
   return {
