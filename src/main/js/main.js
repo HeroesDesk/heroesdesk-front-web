@@ -3,6 +3,8 @@
 import Cycle from '@cycle/core';
 import {makeDOMDriver, hJSX} from '@cycle/dom';
 
+import "./test.scss";
+
 function main(drivers) {
   return {
     DOM: drivers.DOM.select('input').events('click')

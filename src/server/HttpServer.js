@@ -8,11 +8,11 @@ function HttpServer(port, staticServedPath, logRequest) {
   this.logRequest = (typeof logRequest === "undefined") ? true : logRequest;
 }
 
-HttpServer.prototype.start = function(fn) {
+HttpServer.prototype.start = function(app, fn) {
   console.log("Starting server");
 
   var self = this;
-  var app = express();
+  // var app = express();
   self.app = app;
 
   if(self.logRequest) {
@@ -24,10 +24,15 @@ HttpServer.prototype.start = function(fn) {
 
   app.use('/', express.static(self.staticServedPath));
 
-  self.server  = app.listen(self.port, function () {
-    console.log("Server started on port", self.port);
-    if (fn !== undefined) fn();
-  });
+  /**
+   * Confirm the backend server is running 
+   */
+  // app.get("/test", (req, res) => res.send("OK"));
+
+  // self.server  = app.listen(self.port, function () {
+  //   console.log("Server started on port", self.port);
+  //   if (fn !== undefined) fn();
+  // });
 };
 
 HttpServer.prototype.stop = function() {

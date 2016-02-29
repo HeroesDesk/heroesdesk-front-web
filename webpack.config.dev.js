@@ -20,14 +20,11 @@ module.exports = {
         })
     ],
     module: {
-        loaders: [{
-            test: /\.css$/,
-            loaders: ['style', 'css']
-        },{
-            test: /\.js$/,
-            loaders: ['babel'],
-            include: path.join(__dirname, 'src/main/js')
-        }]
+        loaders: [
+            { test: /\.css$/, loaders: ['style', 'css'] },
+            { test: /\.scss$/, loaders: ["style", "css", "sass"] },
+            { test: /\.js$/, loaders: ['babel'], include: path.join(__dirname, 'src/main/js') }
+        ]
     },
     devServer: {
         contentBase: './target',
