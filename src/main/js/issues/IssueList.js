@@ -29,17 +29,21 @@ function main(sources) {
     const conversations$ = Observable
         .from(conversations);
 
-    return {
+  function outputIssueEntry(x) {
+      return li(x.id + " - " + x.subject);
+  }
+
+  return {
         DOM: Observable.combineLatest(
             conversations$,
             (conversations => {
                 return div([
                     h3("To review"),
-                    ul(conversations['TO_REVIEW'].map(x => li(x.subject))),
+                    ul(conversations['TO_REVIEW'].map(x => outputIssueEntry(x))),
                     h3("In progress"),
-                    ul(conversations['IN_PROGRESS'].map(x => li(x.subject))),
+                    ul(conversations['IN_PROGRESS'].map(x => outputIssueEntry(x))),
                     h3("Assigned to you"),
-                    ul(conversations['ASSIGNED'].map(x => li(x.subject)))
+                    ul(conversations['ASSIGNED'].map(x => outputIssueEntry(x)))
                 ]);
             }))
     };
