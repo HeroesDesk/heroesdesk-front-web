@@ -15,7 +15,7 @@ function main(sources) {
     return {
         DOM: Observable.combineLatest(
             issueList.DOM,
-            (issueListVTree => div(["container", issueListVTree]))
+            (issueListVTree => div(".well", [issueListVTree]))
         )
     };
 }

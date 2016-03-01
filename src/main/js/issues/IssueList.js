@@ -1,7 +1,8 @@
 'use strict';
 
 import {Observable} from 'rx';
-import {div, ul, li, h3} from '@cycle/dom';
+import {div, ul, li, h3, a} from '@cycle/dom';
+import qs from "qs"
 import isolate from '@cycle/isolate';
 
 function main(sources) {
@@ -30,7 +31,11 @@ function main(sources) {
         .from(conversations);
 
   function outputIssueEntry(x) {
-      return li(x.id + " - " + x.subject);
+    const href = "#" + qs.stringify({ id: x.id })
+
+    return li(
+        a({ href }, x.id + " - " + x.subject)
+    );
   }
 
   return {
@@ -39,11 +44,11 @@ function main(sources) {
             (conversations => {
                 return div([
                     h3("To review"),
-                    ul(conversations['TO_REVIEW'].map(x => outputIssueEntry(x))),
+                    ul(".list-unstyled", conversations['TO_REVIEW'].map(x => outputIssueEntry(x))),
                     h3("In progress"),
-                    ul(conversations['IN_PROGRESS'].map(x => outputIssueEntry(x))),
+                    ul(".list-unstyled", conversations['IN_PROGRESS'].map(x => outputIssueEntry(x))),
                     h3("Assigned to you"),
-                    ul(conversations['ASSIGNED'].map(x => outputIssueEntry(x)))
+                    ul(".list-unstyled", conversations['ASSIGNED'].map(x => outputIssueEntry(x)))
                 ]);
             }))
     };

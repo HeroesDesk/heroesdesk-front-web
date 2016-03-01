@@ -40,6 +40,7 @@
     "less-loader": "^2.2.2",
     "mocha": "^2.3.4",
     "node-notifier": "^4.4.0",
+    "qs": "^6.1.0",
     "should": "^7.1.1",
     "style-loader": "^0.13.0",
     "watchify": "^3.6.1",
