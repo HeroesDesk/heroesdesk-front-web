@@ -6,7 +6,7 @@ import isolate from '@cycle/isolate';
 
 function main(sources) {
     const conversations = [{
-        'TO_QUALIFY': [{
+        'TO_REVIEW': [{
             'id': 'NAI-91',
             'subject': "Can't input name"
         }, {
@@ -34,8 +34,8 @@ function main(sources) {
             conversations$,
             (conversations => {
                 return div([
-                    h3("To qualify"),
-                    ul(conversations['TO_QUALIFY'].map(x => li(x.subject))),
+                    h3("To review"),
+                    ul(conversations['TO_REVIEW'].map(x => li(x.subject))),
                     h3("In progress"),
                     ul(conversations['IN_PROGRESS'].map(x => li(x.subject))),
                     h3("Assigned to you"),
