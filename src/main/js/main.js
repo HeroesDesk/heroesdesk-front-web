@@ -56,16 +56,10 @@ const view = (state$) => {
 }
 
 function main(sources) {
-	/**
-	 * Observable for sidebar colasping
-	 * @type Obervable[Boolean]
-	 */
-	const UIActions = Observable.of(false);
 
 	const state$ = Observable.of({
 		issues: IssueList(sources).DOM,
-		timer: Observable.interval(1000),
-		UIActions
+		timer: Observable.interval(1000)
 	});
 
     const DOM = view(state$);
