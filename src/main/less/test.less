@@ -1,5 +1,31 @@
 @pink: pink;
+@gray: #37474F;
 
-body {
+/*body {
 	background: @pink;
+}*/
+
+.main {
+	margin-top: 50px;
+}
+
+.sidebar {
+	background: @gray;
+	position: fixed !important;
+	display: block;
+	top:0px;
+	height:100%;
+	border-right: @gray;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-right: 1px solid white;
+}
+
+.navbar-header {
+	padding: 7px;
+	padding-top: 14px;
+	position: fixed;
+	top:0px;
+	background: @gray;
+	width: 100%;
 }
