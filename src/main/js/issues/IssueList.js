@@ -6,9 +6,9 @@ import qs from "qs"
 import isolate from '@cycle/isolate';
 import faker from "faker"
 
-const updateIssueById = (data, id, fn) => {
+const updateIssueBy = (data, p, fn) => {
     const f = x => {
-        if(x.id === id)
+        if(p(x))
             fn(x);
 
         return x;
@@ -24,8 +24,11 @@ function makeModification$(actions) {
     const select$ = actions.select$.map(x => (data) => {
         const selectedIssueId = x.target.id;
 
-        // // Who needs Immutability ?
-        updateIssueById(data, selectedIssueId, issue => issue.isSelected = true)
+        // un-selected all issues
+        updateIssueBy(data, x => true, issue => issue.isSelected = false)
+
+        // Who needs Immutability ?
+        updateIssueBy(data, x => x.id === selectedIssueId, issue => issue.isSelected = true)
 
         return data;
     });
@@ -34,7 +37,7 @@ function makeModification$(actions) {
 }
 
 function model(actions, data$) {
-    
+
     const modification$ = makeModification$(actions);
 
     // RETURN THE MODEL DATA
