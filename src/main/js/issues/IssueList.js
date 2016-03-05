@@ -1,7 +1,7 @@
 'use strict';
 
 import {Observable} from 'rx';
-import {div, ul, li, h3, a} from '@cycle/dom';
+import {div, ul, li, h3, a, button} from '@cycle/dom';
 import qs from "qs"
 import isolate from '@cycle/isolate';
 import faker from "faker"
@@ -21,7 +21,21 @@ const updateIssueBy = (data, p, fn) => {
 
 function makeModification$(actions) {
 
-    const select$ = actions.select$.map(x => (data) => {
+    const create$ = actions.create$.map(x => data => {
+        const keys = ["TO_REVIEW", "IN_PROGRESS", "ASSIGNED"];
+        const randomKey = keys[Math.floor(Math.random() * keys.length)];
+
+        data[randomKey].push({
+            'id': faker.hacker.abbreviation() + '-' + faker.random.number(),
+            'subject': faker.hacker.noun(),
+            content: faker.lorem.sentence(50),
+            state: ''
+        });
+
+        return data;
+    })
+
+    const select$ = actions.select$.map(x => data => {
         const selectedIssueId = x.target.id;
 
         // un-selected all issues
@@ -33,7 +47,9 @@ function makeModification$(actions) {
         return data;
     });
 
-    return Observable.merge(select$);
+    return Observable.merge(
+        select$, create$
+    );
 }
 
 function model(actions, data$) {
@@ -50,7 +66,8 @@ function model(actions, data$) {
 function intent(DOM) {
 
     return {
-        select$: DOM.select('a').events("click")
+        select$: DOM.select('a').events("click"),
+        create$: DOM.select('button').events("click"),
     };
 }
 
@@ -98,6 +115,7 @@ function main({ DOM }) {
             conversations$,
             (conversations => {
                 return div([
+                    button(".btn.btn-primary", "Add issue"),
                     h3("To review"),
                     ul(".list-unstyled", conversations['TO_REVIEW'].map(x => outputIssueEntry(x))),
                     h3("In progress"),
