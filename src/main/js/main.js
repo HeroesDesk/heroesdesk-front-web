@@ -9,16 +9,14 @@ import "../less/test.less";
 
 import IssueList from './issues/IssueList';
 
-const renderSidebar = (time) => {
-	return time.map(x => div(".text-danger", x + " s"))
+const renderSidebar = (issues) => {
+	return issues.map(issue => div(".div", issue))
 };
 
 const renderHeader = () => {
 
 	return header(".navbar-header",
-		div(".col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2", [
-			p(".text-danger", "Heroes Desk of death")
-		])
+		p(["Heroes Desk of death"])
 	);
 }
 
@@ -48,8 +46,8 @@ const view = (state$) => {
 	return state$.map(({ issues, timer }) => div(".container-fluid", [
 			renderHeader(),
 			div(".row", [
-				div(".col-sm-3.col-md-2.sidebar", renderSidebar(timer)),
-				div(".col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main", renderContainer(issues))
+				div(".sidebar", renderSidebar(issues)),
+				div(".main", renderContainer())
 			])
 		])
 	);

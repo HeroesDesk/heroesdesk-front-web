@@ -1,3 +1,5 @@
+@import "../../../node_modules/bootstrap/less/bootstrap.less";
+
 @pink: pink;
 @gray: #37474F;
 
@@ -6,26 +8,40 @@
 }*/
 
 .main {
+	.make-sm-column(9);
+	.make-md-column(10);
+	.make-sm-column-offset(3);
+	.make-md-column-offset(2);
+
 	margin-top: 50px;
 }
 
 .sidebar {
-	background: @gray;
+	.make-sm-column(3);
+	.make-md-column(2);
+
+	/*background: @gray;*/
+	border-right: 3px solid lightgray;
 	position: fixed !important;
 	display: block;
 	top:0px;
 	height:100%;
-	border-right: @gray;
 	overflow-x: hidden;
 	overflow-y: auto;
-	border-right: 1px solid white;
+	/*border-right: 1px solid white;*/
 }
 
 .navbar-header {
+	.make-sm-column(9);
+	.make-md-column(10);
+	.make-sm-column-offset(3);
+	.make-md-column-offset(2);
+
 	padding: 7px;
 	padding-top: 14px;
 	position: fixed;
 	top:0px;
-	background: @gray;
-	width: 100%;
+	/*background: @gray;*/
+	border-bottom: 3px solid lightgray;
+	right:0px;
 }
