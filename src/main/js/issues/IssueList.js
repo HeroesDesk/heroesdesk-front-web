@@ -6,8 +6,51 @@ import qs from "qs"
 import isolate from '@cycle/isolate';
 import faker from "faker"
 
-function main(sources) {
-    const conversations = [{
+const updateIssueById = (data, id, fn) => {
+    const f = x => {
+        if(x.id === id)
+            fn(x);
+
+        return x;
+    };
+
+    data["TO_REVIEW"].map(f);
+    data["IN_PROGRESS"].map(f);
+    data["ASSIGNED"].map(f);
+}
+
+function model(actions, data) {
+    const select$ = actions.select$.map(x => {
+        const selectedIssueId = x.target.id;
+
+        // I don't understand why data is an nested object yet
+        data = data[0];
+
+        // Who needs Immutability ?
+        updateIssueById(data, selectedIssueId, issue => issue.isSelected = true)
+
+        return data;
+    });
+
+    /**
+     * Should be the initial data
+     * @type Observable[Array]
+     */
+    const data$ = Observable.from(data);
+
+    return Observable.merge(select$, data$);
+}
+
+function intent(DOM) {
+
+    return {
+        select$: DOM.select('a').events("click")
+    };
+}
+
+function main({ DOM }) {
+
+    const initialData = [{
         'TO_REVIEW': [{
             'id': 'NAI-91',
             'subject': "Can't input name",
@@ -33,16 +76,14 @@ function main(sources) {
             state: ''
         }]
     }];
-    const conversations$ = Observable
-        .from(conversations);
 
-  function outputIssueEntry(x) {
-    const href = "#" + qs.stringify({ id: x.id })
+    const actions = intent(DOM);
+    const conversations$ = model(actions, initialData);
 
-    return li(
-        a({ href }, x.id + " - " + x.subject)
+    const outputIssueEntry = ({ id, subject, isSelected }) => li(
+        (isSelected) ? ".bg-danger" : null,
+        a("#" + id, [id + " - " + subject])
     );
-  }
 
   return {
         DOM: Observable.combineLatest(

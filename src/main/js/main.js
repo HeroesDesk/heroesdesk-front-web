@@ -16,7 +16,7 @@ const renderSidebar = (issues) => {
 const renderHeader = () => {
 
 	return header(".navbar-header",
-		p(["Heroes Desk of death"])
+		p(["Heroes Desk"])
 	);
 }
 
