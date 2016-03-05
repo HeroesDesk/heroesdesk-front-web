@@ -19,26 +19,29 @@ const updateIssueById = (data, id, fn) => {
     data["ASSIGNED"].map(f);
 }
 
-function model(actions, data) {
-    const select$ = actions.select$.map(x => {
+function makeModification$(actions) {
+
+    const select$ = actions.select$.map(x => (data) => {
         const selectedIssueId = x.target.id;
 
-        // I don't understand why data is an nested object yet
-        data = data[0];
-
-        // Who needs Immutability ?
+        // // Who needs Immutability ?
         updateIssueById(data, selectedIssueId, issue => issue.isSelected = true)
 
         return data;
     });
 
-    /**
-     * Should be the initial data
-     * @type Observable[Array]
-     */
-    const data$ = Observable.from(data);
+    return Observable.merge(select$);
+}
 
-    return Observable.merge(select$, data$);
+function model(actions, data$) {
+    
+    const modification$ = makeModification$(actions);
+
+    // RETURN THE MODEL DATA
+    return data$
+            .concat(modification$)
+            .scan((todosData, modFn) => modFn(todosData))
+            .shareReplay(1);
 }
 
 function intent(DOM) {
@@ -77,8 +80,10 @@ function main({ DOM }) {
         }]
     }];
 
+    const data$ = Observable.from(initialData);
+
     const actions = intent(DOM);
-    const conversations$ = model(actions, initialData);
+    const conversations$ = model(actions, data$);
 
     const outputIssueEntry = ({ id, subject, isSelected }) => li(
         (isSelected) ? ".bg-danger" : null,
