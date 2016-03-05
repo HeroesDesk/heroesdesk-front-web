@@ -47,7 +47,7 @@ const view = (state$) => {
 			renderHeader(),
 			div(".row", [
 				div(".sidebar", renderSidebar(issues)),
-				div(".main", renderContainer())
+				div(".main", renderContainer(issues))
 			])
 		])
 	);
